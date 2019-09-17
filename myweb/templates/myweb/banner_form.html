@@ -1,0 +1,26 @@
+{% extends 'myweb/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="card">
+          <div class="card-body text-center">
+            <div class="card">
+            <div class="card-body">
+        <div class="form">
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" >
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="mt-2 text-center"><button type="submit">Login</button></div>
+          </form>
+        </div>
+        </div>
+      </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

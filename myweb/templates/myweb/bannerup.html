@@ -1,0 +1,17 @@
+{% extends 'myweb/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="form">
+          <form action="" method="post" role="form" enctype="multipart/form-data">
+             {% csrf_token %}
+            <input type="file" name="{{ bb.banner1 }}">
+            <div class="mt-2 text-center"><button type="submit">Login</button></div>
+          </form>
+        </div>
+
+      </div>
+  </section>
+{% endblock %}

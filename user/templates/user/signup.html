@@ -1,0 +1,27 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% load static %}
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+          <!--this is form code -->
+          <h3 style="color: red">{{ err }}</h3>
+          <form  method="post" entype="multipart/from-data">
+             {% csrf_token %}
+            User_name<input type="text" class="form-group text-center" name="username">
+            Possword<input type="text" class="form-group text-center" name="p1">
+            conform_Passwod<input type="text" class="form-group text-center" name="p2">
+            <div class="text-center"><button class="btn btn-primary" type="submit">Signup</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    {% endblock %}

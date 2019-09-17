@@ -1,0 +1,25 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+          <!--this is form code -->
+          <h3 style="color: red">{{ err }}</h3>
+          <form  method="post" entype="multipart/from-data">
+             {% csrf_token %}
+             {{form|crispy}}
+            <div class="text-center"><button class="btn btn-primary" type="submit">Login</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    {% endblock %}
