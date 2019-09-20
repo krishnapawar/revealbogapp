@@ -45,15 +45,17 @@ class BannerUpdate(LoginRequiredMixin,UpdateView):
 
 
 
-def up(request):
+def up(request,banner_id):
 	if request.method == 'POST':
-		f = BannerForm(request.POST,request.FILES)
+		f = BannerForm(request.POST,request.FILES,instance=get_object_or_404(banner, id = banner_id))
 		if f.is_valid():
+			f.save()
 			return HttpResponseRedirect('/thanks/')
 
 	else:
-		form = BannerForm()
-	return render(request, 'myweb/bannerup.html', {'w': f})
+		f = BannerForm(instance=get_object_or_404(banner, id = banner_id))
+	
+	return render(request, 'myweb/bannerup.html',{'w': f} )
 
     
 		

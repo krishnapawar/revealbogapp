@@ -7,6 +7,6 @@ urlpatterns = [
 
 
      path('',auth_views.main,name='home'),
-     path('pu/',auth_views.up,name='h'),
+     path('<int:banner_id>/pu/',auth_views.up,name='h'),
      
 ]
