@@ -5,7 +5,6 @@ from user.models import photfolio
 from django.views.generic.edit import UpdateView 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from.forms import BannerForm
 
 
@@ -50,7 +49,7 @@ def up(request,banner_id):
 		f = BannerForm(request.POST,request.FILES,instance=get_object_or_404(banner, id = banner_id))
 		if f.is_valid():
 			f.save()
-			return HttpResponseRedirect('/thanks/')
+			return redirect('userad')
 
 	else:
 		f = BannerForm(instance=get_object_or_404(banner, id = banner_id))

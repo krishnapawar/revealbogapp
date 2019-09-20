@@ -1,5 +1,25 @@
 {% extends 'user/base.html' %}
-{% block conten %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+
+		{% for w in w %}
+		
+		<div class="col-md-2"><img class="img-thumbnail" src="{{w.banner1.url}}"><div class="caption"><p>{{w.banner1}}</p></div></div>
+	
+		<div class="col-md-2"><img class="img-thumbnail" src="{{w.banner2.url}}"><div class="caption"></div></div>
+	
+		<div class="col-md-2"><img class="img-thumbnail" src="{{w.banner3.url}}"><div class="caption"></div></div>
+		
+		<div class="col-md-2"><img class="img-thumbnail" src="{{w.banner4.url}}"><div class="caption"></div></div>
+	
+		<div class="col-md-2"><img class="img-thumbnail" src="{{w.banner5.url}}"><div class="caption"></div></div>
+		<div class="col-md-2"><a class="btn btn-outline-primary" href="{% url 'h' w.id %}">Edit</a></div>
+		{% endfor %}
+	</div>
+
+</div>
 
 
 {% endblock %}
