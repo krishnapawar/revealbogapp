@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from . import views as auth_views
 
 
 urlpatterns = [
 
 
-     path('',views.main,name='home'),
-     path('update/<int:pk>',views.Bupdate.as_view(),name='updatebanner')
+     path('',auth_views.main,name='home'),
+     path('pu/',auth_views.up,name='h'),
+     
 ]

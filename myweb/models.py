@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from PIL import Image
+from django.urls import reverse
 
 # Create your models here.
 class clients(models.Model):
@@ -18,6 +19,9 @@ class banner(models.Model):
 	banner3 = models.ImageField(upload_to='bennne')
 	banner4 = models.ImageField(upload_to='bennne')
 	banner5 = models.ImageField(upload_to='bennne')
+
+	def get_absolute_url(self):
+		return reverse('home')
 
 
 	def save(self):

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from myweb.models import clients
+from myweb.models import clients,banner
 from.models import photfolio
 from django.utils import timezone
 from django.contrib import messages
@@ -42,7 +42,8 @@ def enterphotfolio(request):
 
 @login_required(login_url='login')
 def useradmin(request):
-	return render(request,'user/user_home.html')
+	b = banner.objects.all()
+	return render(request,'user/user_home.html',{'w':b})
 
 
 

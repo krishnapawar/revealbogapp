@@ -2,9 +2,11 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import clients,banner
 from django.utils import timezone
 from user.models import photfolio
-from django.http import HttpResponse
-from django.urls import reverse
 from django.views.generic.edit import UpdateView 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from.forms import BannerForm
 
 
 # Create your views here.
@@ -34,8 +36,25 @@ def updatebanner(request,banner_id):
 	b = get_object_or_404(banner, id = banner_id)
 	return render(request,'myweb/bannerup.html',{'bb':b})
 
-class Bupdate(UpdateView):
-	model = banner
-	fields = ['banner1','banner2','banner3','banner4','banner5']
+
+
+
+class BannerUpdate(LoginRequiredMixin,UpdateView):
+    model = banner
+    fields = ['banner1','banner2','banner3','banner4','banner5']
+
+
+
+def up(request):
+	if request.method == 'POST':
+		f = BannerForm(request.POST,request.FILES)
+		if f.is_valid():
+			return HttpResponseRedirect('/thanks/')
+
+	else:
+		form = BannerForm()
+	return render(request, 'myweb/bannerup.html', {'w': f})
+
+    
 		
 
